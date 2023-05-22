@@ -1,9 +1,15 @@
-﻿Console.WriteLine("Введите натуральное число: ");
+﻿
+Console.WriteLine("Введите натуральное число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int i = -number;
-while(i <= number)
+if (number < 1)
+    Console.WriteLine("Некоректный ввод");
+else
 {
-    Console.Write($"{i} ");
-    ++i;
+    int i = -number;
+    while (i <= number)
+    {
+        Console.Write($"{i} ");
+        ++i;
+    }
 }
