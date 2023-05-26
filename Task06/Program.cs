@@ -5,13 +5,16 @@
 // -3 -> нет
 // 7 -> нет
 
-Console.Write("Введите  чосло ");
+Console.Write("Введите  число ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-if (number / 2)
-{
-    Console.WriteLine($"{number} Является четным ");
-}
+
+int result = number % 2;
+
+if (result == 0)
+
+    Console.WriteLine($"{number} да");
+
 else
-    Console.WriteLine($"{number} не четное");
+    Console.WriteLine($"{number} нет");
 
