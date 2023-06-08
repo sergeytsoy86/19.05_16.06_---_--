@@ -4,7 +4,7 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
-int[] array = CreateArrayRndInt(5, -100, 100);
+int[] array = CreateArrayRndInt(4, -99, 99);
 PrintArray(array);
 
 int[] CreateArrayRndInt(int size, int min, int max)
@@ -41,4 +41,4 @@ int SumIfOddIndex(int[] arr)
 }
 
 int sum = SumIfOddIndex(array);
-Console.Write($"Сумма чисела не четных элементов равна: {sum}");
+Console.Write($"-> {sum}");
