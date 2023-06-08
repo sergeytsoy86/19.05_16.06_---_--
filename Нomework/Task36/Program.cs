@@ -4,28 +4,41 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
-Console.WriteLine($"Введи длину массива: ");
-int ElementNumbers = Convert.ToInt32(Console.ReadLine()); 
-int randomNumber =  RandomNumbers(ElementNumbers, 1, 10);
-Console.WriteLine($"  Сумма элементов, стоящих на нечётных позициях: {randomNumber}");
+int[] array = CreateArrayRndInt(5, -100, 100);
+PrintArray(array);
 
+int[] CreateArrayRndInt(int size, int min, int max)
+{
 
-
-int RandomNumbers(int ElementNumbers, int min, int max)
-  {
-  int[] randomNumber = new int[ElementNumbers];
-  int sumElements = 0;
-  Console.Write("Получившийся массив: ");
-
-    for (int i = 0; i <randomNumber.Length; i++ ){
-      randomNumber[i] = new Random().Next(min, max);
-
-      Console.Write(randomNumber[i] + " ");
-
-      if (i % 2 != 1)
-      {
-        sumElements = sumElements + randomNumber[i];
-      }
+    int[] arr = new int[size];
+    Random rnd = new Random();
+    for (int i = 0; i < arr.Length; i++)
+    {
+        arr[i] = rnd.Next(min, max + 1);
     }
-  return sumElements;
-  }
+    return arr;
+}
+
+void PrintArray(int[] arr, string sep = ",")
+{
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}{sep} ");
+        else Console.Write($"{arr[i]}");
+    }
+    Console.Write("] ");
+}
+
+int SumIfOddIndex(int[] arr)
+{
+    int sum = 0;
+    for (int i = 1; i < arr.Length; i = i + 2)
+    {
+        sum = sum + arr[i];
+    }
+    return sum;
+}
+
+int sum = SumIfOddIndex(array);
+Console.Write($"Сумма чисела не четных элементов равна: {sum}");

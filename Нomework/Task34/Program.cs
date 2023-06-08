@@ -3,42 +3,39 @@
 // Напишите программу, которая покажет количество чётных чисел в массиве.
 // [345, 897, 568, 234] -> 2
 
-Console.WriteLine("Введите длину массива:  ");
-int size = Convert.ToInt32(Console.ReadLine());
-int[] numbers = new int[size];
-RandonNumbers(numbers);
-Console.WriteLine("В этом массиве: ");
-PrintArray(numbers);
+int[] array = CreateArrayRndInt(5, 100, 1000);
+PrintArray(array);
 
-void RandonNumbers(int[] numbers)
+
+int[] CreateArrayRndInt(int size, int min, int max)
 {
-    for(int i = 0; i < size; i++)
+
+    int[] arr = new int[size];
+    Random rnd = new Random();
+    for (int i = 0; i < arr.Length; i++)
     {
-        numbers[i] = new Random().Next(100,1000);
+        arr[i] = rnd.Next(min, max + 1);
     }
+    return arr;
 }
 
+void PrintArray(int[] arr, string sep = ",")
+{
+    Console.Write("[ ");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}{sep} ");
+        else Console.Write($"{arr[i]}");
+    }
+    Console.Write(" ] ");
+}
 
 int count = 0;
 
-for (int x = 0; x < numbers.Length; x++)
+for (int i = 0; i <array.Length; i++)
 {
-if (numbers[x] % 2 == 0)
-count++;
+    if (array[i] % 2 == 0)
+        count++;
 }
-Console.WriteLine($"из {numbers.Length} чисел, {count} четных");
-
-
-
-void PrintArray(int[] numbers)
-{
-    Console.Write("[ ");
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        if (i < numbers.Length - 1) Console.Write($"{numbers[i]}, ");
-        else Console.Write($"{numbers[i]} ");
-    }
-    Console.Write("]");
-    Console.WriteLine();
-}
+Console.WriteLine($"из {array.Length} чисел, {count} четных");
 
