@@ -6,16 +6,15 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-double[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
-{
-
+double[,] CreateMatrixRndInt(int rows, int columns, int min, int max) 
+{ 
     double[,] matrix = new double[rows, columns];
     Random rnd = new Random();
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rnd.Next(min, max) / 10.0;
+             matrix[i, j] = rnd.Next(min, max) / 10.0;
         }
     }
     return matrix;
@@ -28,11 +27,11 @@ void PrintMatrix(double[,] matrix)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i, j],6}");
+             Console.Write($"{matrix[i, j], 6}");
         }
         Console.WriteLine();
     }
 }
 
-double[,] array2d = CreateMatrixRndInt(3, 4, -100, 1000);
+double[,] array2d = CreateMatrixRndInt(3, 4, -100, 100);
 PrintMatrix(array2d);
