@@ -15,7 +15,7 @@ double[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rnd.Next(-99, 99) / 10.0;
+            matrix[i, j] = rnd.Next(min, max) / 10.0;
         }
     }
     return matrix;
@@ -34,5 +34,5 @@ void PrintMatrix(double[,] matrix)
     }
 }
 
-double[,] array2d = CreateMatrixRndInt(3, 4, 3, 4);
+double[,] array2d = CreateMatrixRndInt(3, 4, -100, 1000);
 PrintMatrix(array2d);
