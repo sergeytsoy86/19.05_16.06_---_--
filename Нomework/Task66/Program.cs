@@ -9,7 +9,7 @@
 Console.WriteLine("Введите начальное число M:");
 double numberM = Convert.ToDouble(Console.ReadLine());
 
-if (numberM % 2 != 0)  
+if (numberM % 2 != 0) 
     {
         Console.WriteLine("Вы ввели не натуральное число");
         return;
